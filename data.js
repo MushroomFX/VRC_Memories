@@ -1,4 +1,4 @@
-"var data = `" 
+var data = ` 
 Auflistung der Ordnerpfade fr Volume SSD
 Volumeseriennummer : 22D4-B04D
 C:.
@@ -1446,4 +1446,4 @@ C:.
         VRChat_2023-01-29_21-53-25.376_720x1280.png
         VRChat_2023-01-29_21-53-26.548_720x1280.png
         
-"`" 
+` 
