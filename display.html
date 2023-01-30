@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="folders"></div>
+  <div class="noselect" id="folderSettings" onclick="showFolders()">V</div>
+  <h2 class="noselect" id="title"></h2>
+  <div id="imgs"></div>
+</body>
+</html>
+<script src="data.js"></script>
+<script>
+  var arrString = []
+
+  for(i=1;i<data.split('+').length;i++){
+    arrString.push(data.replaceAll('\n','').split('+')[i].replaceAll('|','\n').replaceAll(' ','').replaceAll('\n\n','\n').split('\n'))
+    
+  }
+
+  var treeInedx = window.location.search.replaceAll('?','')
+
+  if(window.location.search == ""){
+    treeInedx = 0
+  }
+
+  document.querySelector('#title').innerHTML = arrString[treeInedx*1-1][0].replace('---','')
+
+  for(i=0;i<arrString.length;i++){
+    document.getElementById('folders').innerHTML += `<a class="folder" href=?${i+1}>${arrString[i][0].replace('---','')}</a>`
+    if(i==treeInedx){
+      document.querySelectorAll('.folder')[i-1].id = 'activeFolder'
+    }
+  }
+
+  for(i=1;i<arrString[treeInedx].length-1;i++){
+    delayedLoad(arrString[treeInedx*1-1][0].replace('---','')+'/' + arrString[treeInedx*1-1][i],i)
+  }
+
+  function delayedLoad(url,t){
+    setTimeout(function(){
+      document.querySelector('#imgs').innerHTML += `<img src="${url}">`
+    },t*100)
+  }
+
+  var showFolders_bool = false
+  function showFolders(){
+    showFolders_bool = !showFolders_bool
+      document.getElementById('folders').style.display = "grid"
+      document.getElementById('folderSettings').style.transform = `rotate(${showFolders_bool*1*180+180}deg)`;
+    if(showFolders_bool){
+      document.getElementById('folders').style.display = "none"
+    }
+  }
+</script>
+
+<style>
+body{
+  margin: 0;
+  overflow-x: hidden;
+  background: #060608;
+  color: white;
+}
+
+#imgs {
+  width: 100vw;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  /* grid-template-rows: 1fr 1fr 1fr;  */
+  gap: 1em 0px;
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". . ."; 
+}
+#imgs > img{
+  width: calc(33vw - 20px);
+  /* box-shadow: 0px 0px .5em teal; */
+  border-radius: .5em;
+  border: #64637c 2px solid;
+  margin: 0;
+}
+
+#title{
+  border-bottom: #64637c 3px solid;
+  padding-bottom: 1em;
+}
+h2{
+  text-align: center;
+  font-family: 'Uni Sans Thin';
+  letter-spacing:.5em;
+  font-size: 5em;
+}
+
+@font-face {
+      font-family: 'Uni Sans Thin';
+      src: url('fonts/DC_Thin.woff2'),
+      url('DC_Thin.woff2') format('woff2');
+}
+
+@font-face {
+      font-family: 'Uni Sans Heavy';
+      src: url('fonts/DC_Heavy.woff2'),
+      url('DC_Heavy.woff2') format('woff2');
+  }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #64637c; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fff; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+#folders{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . .";
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+.folder{
+  padding: 0.5em;
+  text-align: center;
+  font-family: Uni Sans Heavy;
+  color: white;
+}
+#folderSettings{
+  width: 100vw;
+  background:#64637c;
+  text-align: center;
+  padding: 0.5em;
+  font-family: Uni Sans Heavy;
+  color: white;
+  transform: rotate(180deg);
+}
+#activeFolder{
+  color:#64637c
+}
+</style>
+
+<script>
+for (i = 0; i < document.querySelectorAll("h2").length; i++) {
+    var current = document.querySelectorAll("h2")[i];
+    var arr = current.innerHTML.split("");
+    var temp = [];
+    for (j = 0; j < arr.length; j++) {
+      temp.push(`<span class="animLetter">${arr[j]}</span>`);
+    }
+    current.innerHTML = temp.join("");
+}
+
+  for (i = 0; i < document.querySelectorAll(".animLetter").length; i++) {
+    var elem = document.querySelectorAll(".animLetter")[i]
+    elem.onmouseleave = (event) => {
+      remHoverGlow(event.target);
+      };
+    elem.onmouseover = (event) => {
+      hoverGlow(event.target);
+    };
+  }
+
+function remHoverGlow(elem) {
+  elem.style.textShadow = "none";
+  if (elem.previousElementSibling !== null) {
+    elem.previousElementSibling.style.textShadow = "none";
+  }
+  if (elem.nextElementSibling !== null) {
+    elem.nextElementSibling.style.textShadow = "none";
+  }
+}
+
+function hoverGlow(elem) {
+  var prev = elem.previousElementSibling;
+  var next = elem.nextElementSibling;
+
+  elem.style.textShadow = `0px 0px 10px ${window.getComputedStyle(elem).color}`;
+  if (elem.previousElementSibling !== null) {
+    prev.style.textShadow = `0px 0px 5px ${
+      window.getComputedStyle(prev).color
+    }`;
+  }
+  if (elem.nextElementSibling !== null) {
+    next.style.textShadow = `0px 0px 5px ${
+      window.getComputedStyle(next).color
+    }`;
+  }
+}
+
+</script>
