@@ -6,6 +6,7 @@ C:.
 |   DC_Heavy.woff2
 |   DC_Thin.woff2
 |   display.html
+|   filter.html
 |   push.bat
 |   README.md
 |   
