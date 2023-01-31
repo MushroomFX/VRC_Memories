@@ -1,4 +1,4 @@
-# **VRC_Memorys**
+# **VRC_Memories**
 
 ### **How to use**
 
@@ -8,5 +8,4 @@
 4. Enjoy!
 
 ### **honorable mention**
-
-ignore the name, im dyslexia **OwO**
+**OwO**
