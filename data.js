@@ -1,6 +1,6 @@
 var data = ` 
-Auflistung der Ordnerpfade fr Volume SSD
-Volumeseriennummer : 22D4-B04D
+Folder PATH listing for volume Windows
+Volume serial number is A615-32A8
 C:.
 |   data.js
 |   DC_Heavy.woff2
