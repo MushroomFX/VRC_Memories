@@ -22,7 +22,6 @@ git add -A
 git commit -m %date% > lastCommit.log
 echo %time:~0,-3% >>lastCommit.log
 
-set /p commit_text=<lastCommit.log
 type lastCommit.log >> commit.log
 echo. >> commit.log
 echo. >> commit.log
@@ -30,3 +29,10 @@ echo. >> commit.log
 
 git push
 
+
+
+set "file_contents="
+
+for /f "usebackq delims=" %%a in ("lastCommit.log") do set "file_contents=!file_contents!%%a
+
+msg * %file_contents%
