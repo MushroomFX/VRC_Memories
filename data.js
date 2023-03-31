@@ -2,11 +2,13 @@ var data = `
 Auflistung der Ordnerpfade fÅr Volume SSD
 Volumeseriennummer : 22D4-B04D
 C:.
+|   commit.log
 |   data.js
 |   DC_Heavy.woff2
 |   DC_Thin.woff2
 |   display.html
 |   filter.html
+|   lastCommit.log
 |   push.bat
 |   README.md
 |   
