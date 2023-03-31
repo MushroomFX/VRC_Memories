@@ -1,5 +1,3 @@
-setlocal
-
 set current_dir=%cd%
 set source_dir=C:\Program Files (x86)\Steam\userdata\895010532\760\remote\438100\screenshots
 set dest_dir=%cd%\steam_screenshots
@@ -29,8 +27,12 @@ echo. >> commit.log
 
 git push
 
-
+setlocal EnableDelayedExpansion
 
 set "file_contents="
-for /f "usebackq tokens=*" %%a in ("lastCommit.log") do set "file_contents=%file_contents%\n%%a"
-msg * %file_contents%
+for /f "usebackq delims=" %%a in ("lastCommit.log") do (
+  set "line=%%a"
+  set "file_contents=!file_contents!!line! \n"
+)
+
+msg * /w /v %file_contents%
