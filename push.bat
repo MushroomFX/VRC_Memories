@@ -33,6 +33,6 @@ git push
 
 set "file_contents="
 
-for /f "usebackq delims=" %%a in ("lastCommit.log") do set "file_contents=!file_contents!%%a
+for /f "usebackq delims=" %%a in ("lastCommit.log") do set "file_contents=!file_contents!%%a"
 
 msg * %file_contents%
