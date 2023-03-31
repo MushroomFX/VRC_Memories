@@ -1,3 +1,5 @@
+setlocal
+
 set current_dir=%cd%
 set source_dir=C:\Program Files (x86)\Steam\userdata\895010532\760\remote\438100\screenshots
 set dest_dir=%cd%\steam_screenshots
@@ -17,5 +19,12 @@ echo ` >> data.js
 
 git pull
 git add -A
-git commit -m %date% > commit.log
-git push
+git commit -m %date% > lastCommit.log
+echo %time:~0,-3% >>lastCommit.log
+
+set /p commit_text=<lastCommit.log
+echo lastCommit.log >> commit.log
+echo. >> commit.log
+
+git push >> push.log
+
