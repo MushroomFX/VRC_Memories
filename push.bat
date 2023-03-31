@@ -5,8 +5,6 @@ for %%i in ("%source_dir%\*") do (
     echo %%i | findstr vr || move "%%i" "%dest_dir%"
 )
 
-timeout -1
-
 echo var data = ` > data.js
 tree /f /a >> data.js
 echo ` >> data.js
