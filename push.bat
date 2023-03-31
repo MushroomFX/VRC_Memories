@@ -25,6 +25,8 @@ echo %time:~0,-3% >>lastCommit.log
 set /p commit_text=<lastCommit.log
 type lastCommit.log >> commit.log
 echo. >> commit.log
+echo. >> commit.log
+echo. >> commit.log
 
 git push
 
