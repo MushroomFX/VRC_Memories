@@ -1,6 +1,6 @@
 var data = ` 
-Auflistung der Ordnerpfade fÅr Volume SSD
-Volumeseriennummer : 22D4-B04D
+Auflistung der Ordnerpfade
+Volumeseriennummer : 7472-2389
 C:.
 |   commit.log
 |   data.js
@@ -2152,6 +2152,8 @@ C:.
 +---2023-06
 |       VRChat_2023-06-09_05-15-51.036_2560x1440.png
 |       VRChat_2023-06-09_05-15-54.626_2560x1440.png
+|       VRChat_2023-06-21_13-46-33.852_1920x1080.png
+|       VRChat_2023-06-21_13-53-18.290_1920x1080.png
 |       
 \---steam_screenshots
         20220714072640_1.jpg
@@ -2411,5 +2413,6 @@ C:.
         20230617065904_1.jpg
         20230618052629_1.jpg
         20230618052646_1.jpg
+        20230621135318_1.jpg
         
 ` 
