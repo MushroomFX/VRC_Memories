@@ -12,6 +12,15 @@ C:.
 |   push.bat
 |   README.md
 |   
++---!Graphics
+|   +---Banners
+|   |       Banner.pdn
+|   |       Banner.png
+|   |       BannerBig.png
+|   |       
+|   \---Emojis
+|           ezgif-2-d9e09e435e.png
+|           
 +---2022-06
 |       VRChat_1920x1080_2022-06-17_00-22-39.537.png
 |       VRChat_1920x1080_2022-06-17_00-24-29.500.png
